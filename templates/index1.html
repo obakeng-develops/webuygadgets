@@ -1,0 +1,51 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center hero">
+        <div class="col-md-6 my-5 py-5">
+            <h1 class="display-3">Find Your Next.</h1>
+            <p class="lead">The simple way to sell your gadget.</p>
+            <button class="btn btn-lg btn-success shadow">Sell a gadget</button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-10 py-5">
+            <h1 class="display-4 text-center mb-4 font-space-grotesk">How it works.</h1>
+            <div class="card-deck">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h5 class="card-title"><strong>Enter your details</strong></h5>
+                    <p class="card-text">Provide us with details about yourself so we can get to know you better.</p>
+                  </div>
+                </div>
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h5 class="card-title"><strong>Tell us about your gadget</strong></h5>
+                    <p class="card-text">Once we get to know what you want to sell to us, the process becomes easier.</p>
+                  </div>
+                </div>
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h5 class="card-title"><strong>Tell us your expectations</strong></h5>
+                    <p class="card-text">Provide us with the price expectation for your gadget.</p>
+                  </div>
+                </div>
+                <div class="card shadow">
+                    <div class="card-body">
+                      <h5 class="card-title"><strong>Wait for reach back.</strong></h5>
+                      <p class="card-text">One of our consultants will reach back to you after our final review.</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'layouts/footer.html' %}
+
+{% endblock %}

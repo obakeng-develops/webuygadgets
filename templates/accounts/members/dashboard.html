@@ -1,0 +1,37 @@
+{% extends 'accounts/layouts/base.html' %}
+
+{% block content %}
+{% load permission_tags %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <h3 class="mb-3">My Gadgets</h3>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <ul class="navbar-nav">
+                        {% if user|has_role:'systemadmin' %}
+                        <li class="nav-item my-2 d-flex">Samsung Galaxy S8
+                            <div class="ml-auto">
+                                <button class="btn btn-sm btn-primary">View</button>
+                                <button class="btn btn-sm btn-success">Approved</button>
+                            </div>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item my-2 d-flex">iPhone 7S 
+                            <div class="ml-auto">
+                                <button class="btn btn-sm btn-primary">View</button>
+                                <button class="btn btn-sm btn-info">In Review</button>
+                            </div>
+                        </li>
+                        <form>
+                            
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

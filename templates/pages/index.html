@@ -1,0 +1,79 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-6 my-5">
+            <!-- <div class="card shadow">
+                <form action="{% url 'sell' %}" method="post" class="px-4 py-4">
+                    {% csrf_token %}
+                    {{ cat_form.as_p }}
+                    <input class="btn btn-primary" type="submit"/>
+                </form>
+            </div> -->
+            
+            <div class="card shadow justify-content-center">
+                <div class="row justify-content-center my-5">
+                    <div class="col-md-10">
+                        <form method="post" action="{% url 'sell' %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                        <!-- <div class="card">
+                            <div class="card-header text-center bg-dark text-white border-0">Make & Model</div>
+                            <div class="card-body bg-light border-0">
+                                
+                                {{ man_form }}
+                                <select class="form-control my-3">
+                                    <option>iPhone 8</option>
+                                    <option>Samsung Galaxy S4</option>
+                                    <option>Hauwei P40 Lite</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-inline my-4">
+                            <label><b>Expected Price:</b></label>
+                            <ul class="nav nav-pills ml-5" id="pills-tab" role="tablist">
+                                {{ form.product_expected_price }}
+                            </ul>
+                        </div>
+                        <div class="form-inline my-4">
+                            <label><b>Colour</b></label>
+                            <ul class="nav nav-pills ml-5" id="pills-tab" role="tablist">
+                                {% for value, text in vat_form.product_variant.field.choices %}
+                                <li class="nav-item">
+                                    <a class="nav-link border" id="pills-contact-tab" data-toggle="pill" href="" role="tab" aria-controls="pills-contact" aria-selected="false">{{ text }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="form-inline my-4">
+                            <label><b>Condition</b></label>
+                            <ul class="nav nav-pills ml-4" id="pills-tab" role="tablist">
+                                {% for value, text in form.product_condition.field.choices %}
+                                <li class="nav-item">
+                                    <a class="nav-link border" id="pills-contact-tab" data-toggle="pill" href="" role="tab" aria-controls="pills-contact" aria-selected="false">{{ text }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="form-inline my-4">
+                            <label><b>Accessories</b></label>
+                            <ul class="nav nav-pills ml-2" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                  <a class="nav-link border" id="pills-home-tab" data-toggle="pill" href="" role="tab" aria-controls="pills-home" aria-selected="true">Box + Charger</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link border" id="pills-profile-tab" data-toggle="pill" href="" role="tab" aria-controls="pills-profile" aria-selected="true">USB Cable</a>
+                                </li>
+                            </ul>
+                        </div> -->
+                        <button class="btn btn-success w-25 my-4 text-center" type="submit">Next</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

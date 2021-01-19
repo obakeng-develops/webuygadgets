@@ -1,0 +1,26 @@
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+/* Homepage section */
+.hero {
+    background-image: url('../images/shiwa.jpg');
+    background-size: cover;
+    color: #fff;
+    height: 80vh;
+}
+
+/* Font types */
+.font-space-grotesk {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Background colors */
+.bg-space-cadet {
+    color: #fff;
+    background-color: #2D3047;
+}
+
+/* Dashboard styles */
