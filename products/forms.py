@@ -12,5 +12,5 @@ class ProductForm(ModelForm):
             'category': Select(attrs={'class': 'form-control'}),
             'variant': Select(attrs={'class': 'form-control'}),
             'condition': Select(attrs={'class': 'form-control'}),
-            'accessory': TextInput(attrs={'class': 'form-control'}),
+            'accessory': Select(attrs={'class': 'form-control'}),
         }

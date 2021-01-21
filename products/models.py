@@ -6,7 +6,8 @@ class Brand(models.Model):
 
 class Model(models.Model):
     model_name = models.CharField(max_length=50)
-    model_year= models.DateField(max_length=50)
+    model_year = models.DateField(max_length=50)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
 
 class Category(models.Model):
 
