@@ -52,5 +52,5 @@ class Product(models.Model):
     model = models.ForeignKey(Model, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     variant = models.ForeignKey(Variant, on_delete=models.CASCADE)
-    condition = models.ForeignKey(max_length=3, choices=CONDITION_CHOICES, default=SEALED_IN_BOX)
+    condition = models.CharField(max_length=3, choices=CONDITION_CHOICES, default=SEALED_IN_BOX)
     accessory = models.ForeignKey(Accessories, on_delete=models.CASCADE)

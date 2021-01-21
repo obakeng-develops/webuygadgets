@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from products.forms import ProductForm, ManufacturerForm, CategoryForm
+from products.forms import ProductForm
 from transaction.forms import SellerForm
 
 from products.models import Product
