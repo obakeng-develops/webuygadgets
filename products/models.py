@@ -35,19 +35,21 @@ class Manufacturer(models.Model):
     manufacturer_name = models.CharField(max_length=50, choices=MANUFACTURER_CHOICES, default=APPLE)
 
 class ProductVariant(models.Model):
-    SEALED_IN_BOX = 'SB'
-    EXCELLENT = 'EX'
-    FAIR = 'FA'
-    DAMAGED = 'DA'
+    RED = 'R'
+    GREEN = 'G'
+    BLUE = 'B'
+    GREY = 'GR'
+    BLACK = 'BL'
 
     VARIANT_CHOICES = [
-        (SEALED_IN_BOX, 'Sealed In Box'),
-        (EXCELLENT, 'Excellent'),
-        (FAIR, 'Fair'),
-        (DAMAGED, 'Damaged'),
+        (RED, 'Red'),
+        (GREEN, 'Green'),
+        (BLUE, 'Blue'),
+        (GREY, 'Grey'),
+        (BLACK, 'Black')
     ]
 
-    variant_type = models.CharField(max_length=20, choices=VARIANT_CHOICES)
+    variant_type = models.CharField(max_length=20, choices=VARIANT_CHOICES, default=RED)
 
 class Product(models.Model):
     SEALED_IN_BOX = 'SB'
