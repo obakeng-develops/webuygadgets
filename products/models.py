@@ -1,61 +1,44 @@
 from django.db import models
 # Create your models here.
 
+class Brand(models.Model):
+    brand_name = models.CharField(max_length=30)
+
+class Model(models.Model):
+    model_name = models.CharField(max_length=50)
+    model_year= models.DateField(max_length=50)
+
 class Category(models.Model):
-    PHONE = 'P'
-    LAPTOP = 'L'
-    DESKTOP = 'D'
-    WATCH = 'W'
+
+    LAPTOP = 'LPTP'
+    DESKTOP = 'DSKT'
+    PHONE = 'PHNE'
+    WATCH = 'WTCH'
+    TABLET = 'TBLT'
 
     CATEGORY_CHOICES = [
-        (PHONE, 'Phone'),
         (LAPTOP, 'Laptop'),
         (DESKTOP, 'Desktop'),
+        (PHONE, 'Phone'),
         (WATCH, 'Watch'),
+        (TABLET, 'Tablet'),
     ]
 
-    category_name = models.CharField(max_length=30, choices=CATEGORY_CHOICES)
-    category_image = models.ImageField()
+    category_name = models.CharField(max_length=4, choices=CATEGORY_CHOICES, default=LAPTOP)
 
-class Manufacturer(models.Model):
-    APPLE = 'APL'
-    SAMSUNG = 'SAM'
-    HAUWEI = 'HAU'
-    NOKIA = 'NOK'
-    SONY = 'SON'
+class Variant(models.Model):
+    variant_name = models.CharField(max_length=50)
 
-    MANUFACTURER_CHOICES = [
-        (APPLE, 'Apple'),
-        (SAMSUNG, 'Samsung'),
-        (HAUWEI, 'Hauwei'),
-        (NOKIA, 'Nokia'),
-        (SONY, 'Sony'),
-    ]
-
-    manufacturer_name = models.CharField(max_length=50, choices=MANUFACTURER_CHOICES, default=APPLE)
-
-class ProductVariant(models.Model):
-    RED = 'R'
-    GREEN = 'G'
-    BLUE = 'B'
-    GREY = 'GR'
-    BLACK = 'BL'
-
-    VARIANT_CHOICES = [
-        (RED, 'Red'),
-        (GREEN, 'Green'),
-        (BLUE, 'Blue'),
-        (GREY, 'Grey'),
-        (BLACK, 'Black')
-    ]
-
-    variant_type = models.CharField(max_length=20, choices=VARIANT_CHOICES, default=RED)
+class Accessories(models.Model):
+    accessory_name = models.CharField(max_length=50)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 class Product(models.Model):
-    SEALED_IN_BOX = 'SB'
-    EXCELLENT = 'EX'
-    FAIR = 'FA'
-    DAMAGED = 'DA'
+
+    SEALED_IN_BOX = 'SIB'
+    EXCELLENT = 'EXC'
+    FAIR = 'FIR'
+    DAMAGED = 'DMG'
 
     CONDITION_CHOICES = [
         (SEALED_IN_BOX, 'Sealed In Box'),
@@ -64,12 +47,10 @@ class Product(models.Model):
         (DAMAGED, 'Damaged'),
     ]
 
-    product_name = models.CharField(max_length=100)
-    product_year = models.CharField(max_length=4)
-    product_model = models.CharField(max_length=40)
-    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
-    product_variant = models.ForeignKey(ProductVariant, on_delete=models.CASCADE)
-    product_condition = models.CharField(max_length=2, choices=CONDITION_CHOICES, default=SEALED_IN_BOX)
-    product_type = models.CharField(max_length=50)
-    product_expected_price = models.DecimalField(max_digits=8, decimal_places=2)
+
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    model = models.ForeignKey(Model, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    variant = models.ForeignKey(Variant, on_delete=models.CASCADE)
+    condition = models.ForeignKey(max_length=3, choices=CONDITION_CHOICES, default=SEALED_IN_BOX)
+    accessory = models.ForeignKey(Accessories, on_delete=models.CASCADE)
