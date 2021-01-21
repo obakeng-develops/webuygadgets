@@ -4,35 +4,35 @@ from django.db import models
 class Brand(models.Model):
     brand_name = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.brand_name
+
 class Model(models.Model):
     model_name = models.CharField(max_length=50)
     model_year = models.DateField(max_length=50)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.model_name
+
 class Category(models.Model):
+    category_name = models.CharField(max_length=20)
 
-    LAPTOP = 'LPTP'
-    DESKTOP = 'DSKT'
-    PHONE = 'PHNE'
-    WATCH = 'WTCH'
-    TABLET = 'TBLT'
-
-    CATEGORY_CHOICES = [
-        (LAPTOP, 'Laptop'),
-        (DESKTOP, 'Desktop'),
-        (PHONE, 'Phone'),
-        (WATCH, 'Watch'),
-        (TABLET, 'Tablet'),
-    ]
-
-    category_name = models.CharField(max_length=4, choices=CATEGORY_CHOICES, default=LAPTOP)
+    def __str__(self):
+        return self.category_name
 
 class Variant(models.Model):
     variant_name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.variant_name
+
 class Accessories(models.Model):
     accessory_name = models.CharField(max_length=50)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.accessory_name
 
 class Product(models.Model):
 
