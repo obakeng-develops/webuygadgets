@@ -13,7 +13,8 @@
                 </form>
             </div> -->
             <div class="card shadow mt-5">
-                <form class="px-4 py-4">
+                <form class="px-4 py-4" method="post" action="{% url 'aboutSeller' %}">
+                  {% csrf_token %}
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="inputEmail4">First Name:</label>

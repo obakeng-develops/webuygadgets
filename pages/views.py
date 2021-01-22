@@ -36,10 +36,6 @@ def aboutSeller(request):
             seller.lastname = form.cleaned_data['lastname']
             seller.email = form.cleaned_data['email']
             seller.cellphone_number = form.cleaned_data['cellphone_number']
-            seller.alternative_number = form.cleaned_data['alternative_number']
-            seller.surburb = form.cleaned_data['surburb']
-            seller.city = form.cleaned_data['city']
-            seller.province = form.cleaned_data['province']
             seller.product = Product.objects.get(id=request.session['id'])
             seller.save()
             return HttpResponse("Done")
