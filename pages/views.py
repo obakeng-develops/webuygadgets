@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from products.forms import ProductForm
 from transaction.forms import SellerForm
 
-from products.models import Product
+from products.models import Product, Model
 from transaction.models import Seller
 
 # Create your views here.
@@ -46,3 +46,8 @@ def aboutSeller(request):
 
 def collection(request):
     return render(request, "pages/collection.html")
+
+def load_models(request):
+    brand_id = request.GET.get('brand')
+    models = Model.objects.filter(brand_id=brand_id).order_by('model_name')
+    return render(request, 'pages/model_dropdown_list.html', { 'models': models })
