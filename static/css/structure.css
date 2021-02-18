@@ -3573,7 +3573,7 @@ body:not(.with_aside) .portfolio_group.list .portfolio-item .portfolio-item-fw-w
 	background-repeat: no-repeat;
 }
 #Footer .footer_action {
-	background: rgba(0, 0, 0, .1);
+	background: #121739;
 }
 #Footer .footer_action .one {
 	margin-bottom: 30px;
