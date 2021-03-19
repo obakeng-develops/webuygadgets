@@ -30,12 +30,23 @@
 
 <script>
     var brand = document.getElementById("id_brand");
+    var select = document.getElementById("id_model");
+    var category = document.getElementById("id_category");
 
     brand.addEventListener('change', function() {
-        fetch(`ajax/load-models?brand=${brand.options[brand.selectedIndex].value}`).then(response1 => {
-            console.log(brand.options[brand.selectedIndex].text);
-            var select = document.getElementById('id_model');
-            select.outerHTML = brand.options[brand.selectedIndex].text;
+        fetch(`ajax/load-models?brand=${brand.options[brand.selectedIndex].value}`).then(data => {
+            data.text().then((j) => {
+                console.log(`${brand.options[brand.selectedIndex].value}`);
+                select.innerHTML = j;
+
+                fetch(`ajax/load-category?model=${select.options[select.selectedIndex].value}`).then(data => {
+                    data.text().then((j) => {
+                        console.log(j);
+                        category.innerHTML = j;
+                    })
+                })
+
+            })
         })
         .catch(error => {
             console.log(error.message);

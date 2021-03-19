@@ -18,3 +18,4 @@ class ProductForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['model'].queryset = Model.objects.none()
+        self.fields['category'].queryset = Category.objects.none()
