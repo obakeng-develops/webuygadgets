@@ -7,6 +7,12 @@ class Brand(models.Model):
     def __str__(self):
         return self.brand_name
 
+class Category(models.Model):
+    category_name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.category_name
+
 class Model(models.Model):
     model_name = models.CharField(max_length=50)
     model_year = models.DateField(max_length=50)
@@ -14,12 +20,6 @@ class Model(models.Model):
 
     def __str__(self):
         return self.model_name
-
-class Category(models.Model):
-    category_name = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.category_name
 
 class Variant(models.Model):
     variant_name = models.CharField(max_length=50)
@@ -55,3 +55,6 @@ class Product(models.Model):
     variant = models.ForeignKey(Variant, on_delete=models.CASCADE)
     condition = models.CharField(max_length=3, choices=CONDITION_CHOICES, default=SEALED_IN_BOX)
     accessory = models.ForeignKey(Accessories, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.brand) + " " + str(self.model) + " (" + str(self.category) + ")"
